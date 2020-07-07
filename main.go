@@ -1,14 +1,20 @@
 package main
 
 import (
-	"GolangDemo/example"
+	"GolangDemo/dto"
+	"GolangDemo/ip"
 	"bufio"
 	"fmt"
 	"os"
 )
 
 func main() {
-	example.JSONDate()
+	//example.JSONDate()
+	var u dto.Users
+	var ua dto.UsersA
+	ip.GetEntity(nil, &u)
+	ip.GetEntity(nil, &ua)
+	fmt.Println(u, ua)
 }
 
 //从命令行获取输入的包bufio
