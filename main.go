@@ -1,9 +1,10 @@
 package main
 
 import (
-	"GolangDemo/channelstudy"
 	"bufio"
 	"fmt"
+	"io"
+	"net/http"
 	"os"
 )
 
@@ -12,8 +13,28 @@ type person struct {
 	age  int
 }
 
+func sayHi(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "hi")
+}
 func main() {
-	channelstudy.CakeStore()
+	//http.HandlerFunc("/", sayHi)
+	//http.ListenAndserve(":8080", nil)
+	http.HandleFunc("/", sayHi)
+	http.ListenAndServe(":8080", nil)
+	/* 阻塞主线程
+	mychan := make(chan int)
+	go func() {
+		for {
+			mychan <- 2
+		}
+	}()
+	go func() {
+		for {
+			fmt.Println(<-mychan)
+		}
+	}()
+	select {}
+	*/
 
 	// var v1 map[int]string
 	// if v1 != nil {
