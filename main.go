@@ -14,7 +14,7 @@ type person struct {
 }
 
 func sayHi(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "hi")
+	io.WriteString(w, "hello man")
 }
 func main() {
 	//http.HandlerFunc("/", sayHi)
