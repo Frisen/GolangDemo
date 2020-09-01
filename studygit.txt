@@ -1,0 +1,4 @@
+first line
+second line (first change)
+third line (second change)
+Git has a mutable index called stage.
