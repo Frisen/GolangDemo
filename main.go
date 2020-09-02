@@ -21,7 +21,7 @@ func main() {
 	//http.ListenAndserve(":8080", nil)
 	http.HandleFunc("/", sayHi)
 	http.ListenAndServe(":8080", nil)
-	/* 阻塞主线程
+	/* 阻塞主线程 I fixed a bug here!
 	mychan := make(chan int)
 	go func() {
 		for {
