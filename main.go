@@ -1,6 +1,7 @@
 package main
 
 import (
+	"GolangDemo/goroutine"
 	"bufio"
 	"fmt"
 	"io"
@@ -16,11 +17,20 @@ type person struct {
 func sayHi(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "hello man")
 }
+
+type Person struct {
+	AgeYears int
+	Name     string
+	Friends  []Person
+}
+
 func main() {
+
+	goroutine.RunWithMaxProd()
 	//http.HandlerFunc("/", sayHi)
 	//http.ListenAndserve(":8080", nil)
-	http.HandleFunc("/", sayHi)
-	http.ListenAndServe(":8080", nil)
+	// http.HandleFunc("/", sayHi)
+	// http.ListenAndServe(":8080", nil)
 	/* 阻塞主线程 I fixed a bug here!
 	mychan := make(chan int)
 	go func() {
