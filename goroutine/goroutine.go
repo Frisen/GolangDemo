@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"runtime"
+	"sync"
 	"time"
 )
 
@@ -30,6 +31,9 @@ func MutiSenderSingleReceipt() {
 	//Data chan
 	dataCh := make(chan int)
 
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+
 	for i := 0; i < senderCount; i++ {
 		go func() {
 			for {
@@ -42,4 +46,19 @@ func MutiSenderSingleReceipt() {
 			}
 		}()
 	}
+
+	go func() {
+		defer wg.Done()
+		var a struct{}
+		for res := range dataCh {
+			if res == maxNum-1 {
+				//close(stopCh)
+				stopCh <- a
+				return
+			}
+			fmt.Println("number is ", res)
+		}
+	}()
+
+	wg.Wait()
 }

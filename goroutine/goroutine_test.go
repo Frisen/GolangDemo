@@ -11,7 +11,7 @@ func TestRunWithMaxProd(t *testing.T) {
 	Convey("goroutine", t, func() {
 		Convey("测", func() {
 			//goroutine.RunWithMaxProd()
-			goroutine.ChannelCosums()
+			goroutine.MutiSenderSingleReceipt()
 		})
 	})
 }
