@@ -32,3 +32,36 @@ func (t *RubyDate) UnmarshalJSON(b []byte) error {
 	*t = RubyDate(v)
 	return nil
 }
+
+func modifyarry(arry []int) []int {
+	for i, v := range arry {
+		arry[i] = v + 20
+	}
+	fmt.Println("方法内的输出", arry)
+	return arry
+}
+
+//找最小值排序
+func sort2(arr []int) {
+	arrlen := len(arr)
+	for i := 0; i < arrlen; i++ {
+		min := i
+		for j := i; j < arrlen; j++ {
+			if arr[min] > arr[j] {
+				min = j
+			}
+		}
+		arr[i], arr[min] = arr[min], arr[i]
+	}
+}
+
+//冒泡排序
+func sort1(arry []int) {
+	for i := 0; i < len(arry); i++ {
+		for j := len(arry) - 1; j > i; j-- {
+			if arry[j-1] > arry[j] {
+				arry[j], arry[j-1] = arry[j-1], arry[j]
+			}
+		}
+	}
+}
