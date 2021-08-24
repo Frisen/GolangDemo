@@ -1,24 +1,20 @@
 package stringstudy
 
-import "fmt"
-
 func LengthOfLongestSubstring(s string) int {
-	left, right, max := 0, 1, 1
-	charmap := make(map[byte]bool)
-	for i := 0; i < len(s); i++ {
-		left = i
-		right = i
-		for j := i; j < len(s); j++ {
-			if charmap[s[j]] {
-
-			} else {
-				charmap[s[j]] = true
-
-			}
+	temp, rk := 0, -1
+	n := len(s)
+	m := make(map[byte]bool)
+	for i := 0; i < n; i++ {
+		for rk+1 < n && !m[s[rk+1]] {
+			m[s[rk+1]] = true
+			rk++
 		}
+		if rk-i+1 > temp {
+			temp = rk - i + 1
+		}
+		delete(m, s[i])
 	}
-	fmt.Println(left, right)
-	return max
+	return temp
 }
 
 func lengthOfLongestSubstring(s string) int {

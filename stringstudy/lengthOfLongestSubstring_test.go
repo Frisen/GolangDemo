@@ -6,5 +6,5 @@ import (
 )
 
 func TestLengthOfLongestSubstring(t *testing.T) {
-	stringstudy.LengthOfLongestSubstring("abcabcbb")
+	stringstudy.LengthOfLongestSubstring("abcbde")
 }
