@@ -1,14 +1,10 @@
 package main
 
 import (
-	datastruct "GolangDemo/data_struct"
-	"bufio"
 	"flag"
 	"fmt"
 	"io"
 	"net/http"
-	"os"
-	"strings"
 )
 
 type person struct {
@@ -29,7 +25,15 @@ type Person struct {
 var mode = flag.String("mode", "", "process mode")
 
 func main() {
-	fmt.Print("Enter text: \n")
+	fmt.Println("1")
+	fmt.Println("2")
+	fmt.Println("3")
+	fmt.Println("4")
+	fmt.Println("lajfaskdjfalks")
+	fmt.Println("lajfaskdjfalks")
+	fmt.Println("lajfaskdjfalks")
+	fmt.Println("lajfaskdjfalks")
+	/*fmt.Print("Enter text: \n")
 	reader := bufio.NewReader(os.Stdin)
 	// ReadString will block until the delimiter is entered
 	input, err := reader.ReadString('\n')
@@ -84,7 +88,7 @@ func main() {
 
 	}()
 	fmt.Println("lasjfajsflaj")
-	<-stop
+	<-stop*/
 	//goroutine.RunWithMaxProd()
 
 	//http.HandlerFunc("/", sayHi)
@@ -133,16 +137,6 @@ func main() {
 	// 	fmt.Println("v5 is not nil,-->", v5)
 	// }
 
-	a := Path{
-		{3, 4},
-		{4, 2},
-	}
-	fmt.Print(a)
-	b := []Point{
-		{2, 3},
-		{4, 2},
-	}
-	fmt.Println(b)
 }
 
 type Point struct {
