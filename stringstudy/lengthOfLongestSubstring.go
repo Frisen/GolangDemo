@@ -45,3 +45,20 @@ func max(x, y int) int {
 	}
 	return x
 }
+
+func NewStrLength(s string) int {
+	rk, l := -1, 0
+	n := len(s)
+	m := make(map[byte]bool)
+	for i := 0; i < n; i++ {
+		for rk+1 < n && !m[s[rk+1]] {
+			m[s[rk+1]] = true
+			rk++
+		}
+		if rk-i+1 > l {
+			l = rk - i + 1
+		}
+		delete(m, s[i])
+	}
+	return l
+}

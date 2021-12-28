@@ -1,147 +1,42 @@
 package main
 
 import (
-	"flag"
 	"fmt"
-	"io"
-	"net/http"
 )
 
-type person struct {
-	name string
-	age  int
+type People interface {
+	Speak(string) string
+	Talk()
 }
 
-func sayHi(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "hello man")
-}
+type Stduent struct{}
 
-type Person struct {
-	AgeYears int
-	Name     string
-	Friends  []Person
-}
-
-var mode = flag.String("mode", "", "process mode")
-
-func main() {
-	fmt.Println("1")
-	fmt.Println("2")
-	fmt.Println("3")
-	fmt.Println("4")
-	fmt.Println("lajfaskdjfalks")
-	fmt.Println("lajfaskdjfalks")
-	fmt.Println("lajfaskdjfalks")
-	fmt.Println("lajfaskdjfalks")
-	/*fmt.Print("Enter text: \n")
-	reader := bufio.NewReader(os.Stdin)
-	// ReadString will block until the delimiter is entered
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error occured while reading input. Please try again", err)
-		return
-	}
-	// remove the delimeter from the string
-	input = strings.TrimSuffix(input, "\n")
-	fmt.Println(input)
-
-	charMap := map[byte]byte{'(': ')', '[': ']', '{': '}'}
-	count := len([]rune(input))
-	stack := datastruct.NewStack()
-	for i := 0; i < count; i++ {
-		if stack.Length() > 0 {
-			if v, ok := charMap[stack.Peek().(byte)]; ok && v == input[i] {
-				stack.Pop()
-				continue
-			}
-		}
-		stack.Push(input[i])
-	}
-	if stack.Length() > 0 {
-		fmt.Println("not matched!")
+func (stu *Stduent) Speak(think string) (talk string) {
+	if think == "love" {
+		talk = "You are a good boy"
 	} else {
-		fmt.Println("matched!")
+		talk = "hi"
 	}
 	return
-	stop := make(chan interface{})
-	//ch := make(chan int, 3)
-	var ch chan int
+}
+func (stu *Stduent) Talk() {}
 
-	ep := 1
-	fmt.Println(ep)
-	//close(ch)
-
-	go func() {
-		<-ch
-		fmt.Println("888888888")
-		for {
-			select {
-			case v, ok := <-ch:
-				if !ok {
-					return
-				}
-				fmt.Println("chan-->", v)
-			default:
-				fmt.Println("非阻塞")
-			}
-		}
-
-	}()
-	fmt.Println("lasjfajsflaj")
-	<-stop*/
-	//goroutine.RunWithMaxProd()
-
-	//http.HandlerFunc("/", sayHi)
-	//http.ListenAndserve(":8080", nil)
-	// http.HandleFunc("/", sayHi)
-	// http.ListenAndServe(":8080", nil)
-	/* 阻塞主线程 I fixed a bug here!
-	mychan := make(chan int)
-	go func() {
-		for {
-			mychan <- 2
-		}
-	}()
-	go func() {
-		for {
-			fmt.Println(<-mychan)
-		}
-	}()
-	select {}
-	*/
-
-	// var v1 map[int]string
-	// if v1 != nil {
-	// 	fmt.Println("v1 is not nil -->", v1)
-	// }
-	// v2 := make(map[int]string, 2)
-	// if v2 != nil {
-	// 	fmt.Println("v2 is not nil,-->", v2)
-	// }
-
-	// var v3 chan string
-	// if v3 != nil {
-	// 	fmt.Println("v2 is not nil,-->", v3)
-	// }
-
-	// v4 := make(chan string)
-	// go func() {
-	// 	v4 <- "first ball"
-	// }()
-	// if v4 != nil {
-	// 	fmt.Println("v4 is not nil,-->", <-v4)
-	// }
-
-	// v5 := make([]int, 2)
-	// if v5 != nil {
-	// 	fmt.Println("v5 is not nil,-->", v5)
-	// }
-
+func Talkit(t People) {
+	fmt.Println("aaaaa")
 }
 
-type Point struct {
-	x float64
-	y float64
-}
+func main() {
 
-type Path []Point
+	//var c chan interface{} = make(chan interface{}, 20)
+
+	// var peo People = new(Stduent)
+	// think := "love"
+	// fmt.Println(peo.Speak(think))
+	// a := []int(nil)
+	a := make([]int, 4)
+	a = append(a, 3, 4, 5)
+	if a == nil {
+		fmt.Println("a is nil")
+	}
+	fmt.Println(a)
+}
